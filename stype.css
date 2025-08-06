@@ -1,0 +1,141 @@
+/* --- Cài đặt chung & Font chữ --- */
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Phần Header --- */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #e0e8ef;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 10px 0 5px 0;
+    color: #1a253c;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #5a6e8a;
+    font-weight: 500;
+}
+
+/* --- Các Section chung --- */
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #1a253c;
+    border-bottom: 3px solid #4a90e2;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Phần Kỹ năng --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-item {
+    background-color: #e0e8ef;
+    color: #334e68;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* --- Phần Dự án --- */
+.project-card {
+    background-color: #f8fafc;
+    border: 1px solid #e0e8ef;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #4a90e2;
+}
+
+.project-links {
+    margin-top: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4a90e2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background-color: #357abd;
+}
+
+.btn.btn-secondary {
+    background-color: #7f8c8d;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #6c7a7b;
+}
+
+
+/* --- Phần Footer --- */
+footer {
+    text-align: center;
+    border-top: 1px solid #e0e8ef;
+    padding-top: 20px;
+    color: #5a6e8a;
+}
+
+.contact-links a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
