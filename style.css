@@ -1,141 +1,99 @@
-/* --- Cài đặt chung & Font chữ --- */
+/* --- Thiết lập chung và biến màu --- */
+:root {
+    --primary-color: #007bff; /* Xanh dương chủ đạo */
+    --secondary-color: #1d2d35; /* Nền tối */
+    --text-color: #343a40; /* Màu chữ chính */
+    --light-bg: #f8f9fa; /* Màu nền sáng */
+}
+
 body {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    background-color: #f4f7f9;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+/* --- Navbar --- */
+.navbar {
+    transition: background-color 0.4s ease;
 }
-
-/* --- Phần Header --- */
-header {
-    text-align: center;
-    margin-bottom: 40px;
+/* Khi ở trên cùng, navbar sẽ trong suốt */
+.navbar-transparent {
+    background-color: transparent !important;
 }
-
-.avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid #e0e8ef;
-    object-fit: cover;
-    margin-bottom: 20px;
+/* Khi cuộn xuống, navbar sẽ có màu nền tối */
+.navbar-scrolled {
+    background-color: var(--secondary-color) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
-h1 {
-    font-size: 2.5em;
-    margin: 10px 0 5px 0;
-    color: #1a253c;
-}
-
-.subtitle {
-    font-size: 1.2em;
-    color: #5a6e8a;
+.navbar .nav-link {
     font-weight: 500;
 }
 
-/* --- Các Section chung --- */
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(29, 45, 53, 0.7), rgba(29, 45, 53, 0.7)), url('https://images.unsplash.com/photo-1555066931-4365d1469c9b?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.hero .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Sections --- */
 section {
-    margin-bottom: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 h2 {
-    font-size: 1.8em;
-    color: #1a253c;
-    border-bottom: 3px solid #4a90e2;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
-/* --- Phần Kỹ năng --- */
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.skill-item {
-    background-color: #e0e8ef;
-    color: #334e68;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 500;
-}
-
-/* --- Phần Dự án --- */
-.project-card {
-    background-color: #f8fafc;
-    border: 1px solid #e0e8ef;
+/* --- Skill cards --- */
+.skill-card {
+    background-color: var(--light-bg);
+    padding: 2rem 1rem;
     border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 20px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.skill-card i {
+    color: var(--primary-color);
 }
 
+/* --- Project cards --- */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .project-card:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.project-card h3 {
-    margin-top: 0;
-    color: #4a90e2;
-}
-
-.project-links {
-    margin-top: 20px;
-}
-
-.btn {
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #4a90e2;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.btn:hover {
-    background-color: #357abd;
-}
-
-.btn.btn-secondary {
-    background-color: #7f8c8d;
-}
-
-.btn.btn-secondary:hover {
-    background-color: #6c7a7b;
-}
-
-
-/* --- Phần Footer --- */
+/* --- Footer --- */
 footer {
-    text-align: center;
-    border-top: 1px solid #e0e8ef;
-    padding-top: 20px;
-    color: #5a6e8a;
+    background-color: var(--secondary-color);
+}
+footer a {
+    transition: opacity 0.3s ease;
+}
+footer a:hover {
+    opacity: 0.8;
 }
 
-.contact-links a {
-    color: #4a90e2;
-    text-decoration: none;
-    font-weight: 500;
+/* --- Hiệu ứng Fade-in --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.contact-links a:hover {
-    text-decoration: underline;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
