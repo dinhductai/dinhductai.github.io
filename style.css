@@ -1,99 +1,104 @@
-/* --- Thiết lập chung và biến màu --- */
 :root {
-    --primary-color: #007bff; /* Xanh dương chủ đạo */
-    --secondary-color: #1d2d35; /* Nền tối */
-    --text-color: #343a40; /* Màu chữ chính */
-    --light-bg: #f8f9fa; /* Màu nền sáng */
+    --background: #1e1e1e;
+    --foreground: #d4d4d4;
+    --green: #00ff7f;
+    --blue: #569cd6;
+    --red: #f44747;
+    --yellow: #fada5e;
+    --terminal-green: #4caf50;
+    --font: 'Fira Code', monospace;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-color);
+    background-color: #333;
+    color: var(--foreground);
+    font-family: var(--font);
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* --- Navbar --- */
-.navbar {
-    transition: background-color 0.4s ease;
-}
-/* Khi ở trên cùng, navbar sẽ trong suốt */
-.navbar-transparent {
-    background-color: transparent !important;
-}
-/* Khi cuộn xuống, navbar sẽ có màu nền tối */
-.navbar-scrolled {
-    background-color: var(--secondary-color) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.navbar .nav-link {
-    font-weight: 500;
-}
-
-/* --- Hero Section --- */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(29, 45, 53, 0.7), rgba(29, 45, 53, 0.7)), url('https://images.unsplash.com/photo-1555066931-4365d1469c9b?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-.hero .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* --- Sections --- */
-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-h2 {
-    margin-bottom: 2rem;
-}
-
-/* --- Skill cards --- */
-.skill-card {
-    background-color: var(--light-bg);
-    padding: 2rem 1rem;
+#terminal {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    background-color: var(--background);
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-}
-.skill-card i {
-    color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-/* --- Project cards --- */
-.project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Footer --- */
-footer {
-    background-color: var(--secondary-color);
-}
-footer a {
-    transition: opacity 0.3s ease;
-}
-footer a:hover {
-    opacity: 0.8;
+#header {
+    background-color: #3c3c3c;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-/* --- Hiệu ứng Fade-in --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+.button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.button.red { background-color: var(--red); }
+.button.yellow { background-color: var(--yellow); }
+.button.green { background-color: var(--terminal-green); }
+
+.title {
+    color: #ccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+#output {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+#output a {
+    color: var(--blue);
+    text-decoration: none;
+}
+#output a:hover {
+    text-decoration: underline;
+}
+
+#input-line {
+    padding: 0 10px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--green);
+    margin-right: 8px;
+    font-weight: 700;
+}
+
+#caret {
+    display: inline-block;
+    width: 8px;
+    height: 1.2em;
+    background-color: var(--foreground);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
