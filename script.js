@@ -12,7 +12,7 @@ Available commands:
   <span style="color: var(--green);">skills</span>     - My technical skills
   <span style="color: var(--green);">projects</span>   - My featured projects
   <span style="color: var(--green);">certs</span>      - My certificates
-  <span style="color: var(--green);">contacts</span>   - How to reach me
+  <span style="color: var(--green);">contact</span>    - How to reach me
   <span style="color: var(--green);">clear</span>      - Clear the terminal screen
         `,
         about: `
@@ -77,6 +77,8 @@ You can reach me via:
 - Email:     <a href="mailto:dinhductai2501@gmail.com">dinhductai2501@gmail.com</a>
 - LinkedIn:  <a href="https://www.linkedin.com/in/ductai2501/" target="_blank">linkedin.com/in/ductai2501</a>
 - GitHub:    <a href="https://github.com/dinhductai" target="_blank">github.com/dinhductai</a>
+- FaceBook:  <a href="https://www.facebook.com/dinhductai12?locale=vi_VN" target="_blank">facebook.com/dinhductai</a>
+
         `
     };
     // ----- KẾT THÚC PHẦN NỘI DUNG ----- //
