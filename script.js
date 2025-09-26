@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const output = document.getElementById('output');
-    const input = document.getElementById('input');
+    const visibleInput = document.getElementById('input'); // <span> để hiển thị
+    const hiddenInput = document.getElementById('hidden-input'); // <input> ẩn để xử lý
+    const terminal = document.getElementById('terminal');
+
     let commandHistory = [];
     let historyIndex = -1;
 
-    // ----- PHẦN NỘI DUNG ----- //
+    // ----- PHẦN NỘI DUNG (GIỮ NGUYÊN) ----- //
     const commands = {
         help: `
 Available commands:
@@ -78,70 +81,86 @@ You can reach me via:
 - LinkedIn:  <a href="https://www.linkedin.com/in/ductai2501/" target="_blank">linkedin.com/in/ductai2501</a>
 - GitHub:    <a href="https://github.com/dinhductai" target="_blank">github.com/dinhductai</a>
 - FaceBook:  <a href="https://www.facebook.com/dinhductai12?locale=vi_VN" target="_blank">facebook.com/dinhductai</a>
-
         `
     };
-    // ----- KẾT THÚC PHẦN NỘI DUNG ----- //
-
-
-    const welcomeMessage = `
-Welcome to Dinh Duc Tai's portfolio
-------------------------------------
-Type 'help' to see a list of commands.
-    `;
-
-    function typeWriter(text, i = 0) {
-        if (i < text.length) {
-            output.innerHTML += text.charAt(i);
-            output.scrollTop = output.scrollHeight;
-            setTimeout(() => typeWriter(text, i + 1), 10);
-        }
-    }
     
-    function processCommand(command) {
-        commandHistory.unshift(command);
-        historyIndex = -1;
+    const welcomeMessage = `Welcome to Dinh Duc Tai's portfolio\n------------------------------------\nType 'help' to see a list of commands.`;
 
-        const response = commands[command] || `Command not exist: ${command}. Type 'help' to see available commands.`;
-        output.innerHTML += `\n${response}\n`;
-    }
-    
-    function executeCommand() {
-        const command = input.textContent.trim().toLowerCase();
-        output.innerHTML += `\n<span class="prompt">guest@dinhductai.io:~$</span> ${command}`;
+    // ----- BẮT ĐẦU PHẦN LOGIC ĐÃ CẬP NHẬT ----- //
 
-        if (command === 'clear') {
-            output.innerHTML = commands.help;
-        } else if (command) {
-            processCommand(command);
-        }
+    // Khi click vào terminal, focus vào input ẩn để kích hoạt bàn phím
+    terminal.addEventListener('click', () => {
+        hiddenInput.focus();
+    });
 
-        input.textContent = '';
-        output.scrollTop = output.scrollHeight;
-    }
+    // Đồng bộ nội dung từ input ẩn sang span hiển thị
+    hiddenInput.addEventListener('input', () => {
+        visibleInput.textContent = hiddenInput.value;
+    });
 
-    document.addEventListener('keydown', (e) => {
+    // Xử lý các phím chức năng (Enter, Up, Down)
+    hiddenInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             executeCommand();
-        } else if (e.key === 'Backspace') {
-            input.textContent = input.textContent.slice(0, -1);
-        } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
-            input.textContent += e.key;
         } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
             if (historyIndex < commandHistory.length - 1) {
                 historyIndex++;
-                input.textContent = commandHistory[historyIndex];
+                updateInputFromHistory();
             }
         } else if (e.key === 'ArrowDown') {
-             if (historyIndex > 0) {
+            e.preventDefault();
+            if (historyIndex > 0) {
                 historyIndex--;
-                input.textContent = commandHistory[historyIndex];
+                updateInputFromHistory();
             } else {
                 historyIndex = -1;
-                input.textContent = '';
+                hiddenInput.value = '';
+                visibleInput.textContent = '';
             }
         }
     });
 
+    function updateInputFromHistory() {
+        const command = commandHistory[historyIndex];
+        hiddenInput.value = command;
+        visibleInput.textContent = command;
+    }
+
+    function executeCommand() {
+        const command = hiddenInput.value.trim().toLowerCase();
+        output.innerHTML += `\n<span class="prompt">guest@dinhductai.io:~$</span> ${command}`;
+
+        if (command) {
+            commandHistory.unshift(command);
+            historyIndex = -1;
+            processCommand(command);
+        }
+
+        hiddenInput.value = '';
+        visibleInput.textContent = '';
+        output.scrollTop = output.scrollHeight;
+    }
+
+    function processCommand(command) {
+        if (command === 'clear') {
+            output.innerHTML = '';
+        } else {
+            const response = commands[command] || `Command not found: ${command}. Type 'help' to see available commands.`;
+            output.innerHTML += `\n${response}\n`;
+        }
+        output.scrollTop = output.scrollHeight;
+    }
+
+    function typeWriter(text, i = 0) {
+        if (i < text.length) {
+            output.innerHTML += text.charAt(i).replace('\n', '<br>');
+            output.scrollTop = output.scrollHeight;
+            setTimeout(() => typeWriter(text, i + 1), 10);
+        }
+    }
+
+    // Khởi chạy
     typeWriter(welcomeMessage);
+    hiddenInput.focus();
 });
