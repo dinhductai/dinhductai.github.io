@@ -1,39 +1,239 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dinhductai:~</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Dinh Duc Tai | Java Backend Developer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div id="terminal">
-        <div id="header">
-            <div class="button red"></div>
-            <div class="button yellow"></div>
-            <div class="button green"></div>
-            <div class="title">dinhductai@portfolio: ~</div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">DucTai.Dev</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certs">Certifications</a></li>
+                <li><a href="#footer" class="btn-contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        <div id="output"></div>
-        <div id="input-line">
-            <span class="prompt">guest@dinhductai.io:~$</span>
-            <span id="input"></span>
-            <span id="caret"></span>
-        </div>
-    </div>
+    </nav>
 
-    <input 
-        type="text" 
-        id="hidden-input" 
-        autofocus 
-        autocomplete="off" 
-        autocorrect="off" 
-        autocapitalize="off" 
-        spellcheck="false"
-    >
+    <header id="about" class="hero">
+        <div class="container">
+            <div class="avatar-container">
+                <img src="image/3x4.jpg" alt="Dinh Duc Tai" class="hero-avatar">
+            </div>
+
+            <p class="greeting">Hello, I am</p>
+            <h1>Dinh Duc Tai</h1>
+            <h2 class="typing-text">Java Backend Developer</h2>
+            
+            <div class="hero-contact-bar">
+                <a href="mailto:dinhductai2501@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> dinhductai2501@gmail.com
+                </a>
+                <a href="tel:+84388252864" class="contact-item">
+                    <i class="fas fa-phone"></i> +84 388 252 864
+                </a>
+                <a href="https://github.com/dinhductai" target="_blank" class="contact-item">
+                    <i class="fab fa-github"></i> github.com/dinhductai
+                </a>
+            </div>
+
+            <p class="summary">
+                Fresher Java Backend Developer with 6 months of experience and fundamentals in Java, OOP, and relational databases. 
+                Experienced in building systems using Spring Boot, Spring Security, Microservices, and deploying with Docker.
+            </p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#certs" class="btn btn-secondary">View Certifications</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-java"></i>
+                    <h3>Core & Frameworks</h3>
+                    <p>Java, Spring Boot, Spring Security (JWT), Spring Cloud, Spring AI, Hibernate/JPA.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Databases</h3>
+                    <p>MySQL, PostgreSQL, MongoDB.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Infrastructure</h3>
+                    <p>Docker, Redis, RabbitMQ, Microservices.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Tools & API</h3>
+                    <p>RESTful API, WebSocket, Swagger, Postman, Git.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">07/2025 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Backend Developer</h3>
+                        <h4>TechByte.asia</h4>
+                        <ul>
+                            <li>Developed core backend services for Fintech, EdTech, and Security products.</li>
+                            <li>Implemented admin management features and RBAC operations.</li>
+                            <li>Optimized performance with Redis caching and secured multi-tenant apps using Spring Security (JWT/OAuth2).</li>
+                            <li>Built real-time comments and notifications using WebSocket.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Personal Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-info">
+                        <h3>Smart Schedule</h3>
+                        <span class="project-role">07/2025 – 08/2025</span>
+                        <p>Intelligent task management ecosystem built on Microservices, leveraging Spring AI to optimize personal productivity.</p>
+                        <ul class="tech-stack">
+                            <li>Spring Boot</li>
+                            <li>Spring Cloud</li>
+                            <li>Spring AI</li>
+                            <li>Docker</li>
+                        </ul>
+                        <div class="project-highlights">
+                            <p><strong>Highlight:</strong> Containerized the entire ecosystem using Docker. Integrated OpenAI’s API for chatbot.</p>
+                        </div>
+                        <a href="https://github.com/dinhductai" target="_blank" class="link-text">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <span class="project-role">04/2025 – 06/2025</span>
+                        <p>E-commerce web app based on Microservices architecture, utilizing RabbitMQ for asynchronous workflows.</p>
+                        <ul class="tech-stack">
+                            <li>Spring Gateway</li>
+                            <li>RabbitMQ</li>
+                            <li>Saga Pattern</li>
+                            <li>Eureka</li>
+                        </ul>
+                        <div class="project-highlights">
+                            <p><strong>Highlight:</strong> Implemented Saga Pattern for data consistency. Built core infrastructure services (Gateway, Config).</p>
+                        </div>
+                        <a href="https://github.com/dinhductai" target="_blank" class="link-text">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="certs" class="section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certs-grid">
+                <div class="cert-item">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <div class="cert-detail">
+                        <h3>IBM Java Developer</h3>
+                        <span class="issuer">Issued by IBM</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-code cert-icon"></i>
+                    <div class="cert-detail">
+                        <h3>Spring Framework for Java</h3>
+                        <span class="issuer">Issued by SkillUp</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-database cert-icon"></i>
+                    <div class="cert-detail">
+                        <h3>Database Structures (MySQL)</h3>
+                        <span class="issuer">Issued by Meta</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-laptop-code cert-icon"></i>
+                    <div class="cert-detail">
+                        <h3>OOP in Java</h3>
+                        <span class="issuer">UC San Diego</span>
+                    </div>
+                </div>
+                 <div class="cert-item">
+                    <i class="fas fa-project-diagram cert-icon"></i>
+                    <div class="cert-detail">
+                        <h3>Data Structures & Algorithms</h3>
+                        <span class="issuer">UC San Diego</span>
+                    </div>
+                </div>
+                <div class="cert-item highlight-cert">
+                    <i class="fas fa-language cert-icon"></i>
+                    <div class="cert-detail">
+                        <h3>TOEIC 580</h3>
+                        <span class="issuer">Listening & Reading</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="footer-content">
+                    <h4>Hanoi University of Industry</h4>
+                    <p class="major">Major: Software Engineering</p>
+                    <p class="year">Session: 2022 – 2026</p>
+                    <p class="gpa">GPA: Good/Excellent</p>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3><i class="fas fa-share-alt"></i> Connect</h3>
+                <div class="social-links">
+                    <a href="https://github.com/dinhductai" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3><i class="fas fa-address-card"></i> Contact Info</h3>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> dinhductai2501@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +84 388 252 864</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hanoi, Vietnam</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            &copy; 2026 Dinh Duc Tai. Designed for Backend Developer Portfolio.
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
