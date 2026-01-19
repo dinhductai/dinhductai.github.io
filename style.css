@@ -1,11 +1,11 @@
 :root {
-    --primary-color: #00ADB5; /* Cyan Blue - Tech vibe */
-    --secondary-color: #393E46; /* Dark Grey */
-    --bg-color: #222831; /* Very Dark Blue/Grey Background */
-    --bg-light: #303841; /* Lighter section background */
-    --text-color: #EEEEEE; /* White/Light Grey Text */
-    --text-muted: #B2B2B2; /* Muted Text */
-    --gold: #FFD700; /* Gold for highlights */
+    --primary-color: #00ADB5; /* Màu xanh chủ đạo */
+    --secondary-color: #393E46; /* Màu xám đậm */
+    --bg-color: #222831; /* Màu nền tối */
+    --bg-light: #303841; /* Màu nền sáng hơn chút */
+    --text-color: #EEEEEE; /* Màu chữ trắng/xám nhạt */
+    --text-muted: #B2B2B2; /* Màu chữ mờ */
+    --gold: #FFD700; /* Màu vàng cho highlight */
     --transition: all 0.3s ease;
 }
 
@@ -87,7 +87,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     text-align: center;
-    padding-top: 80px; /* Offset for fixed navbar */
+    padding-top: 80px;
 }
 
 /* Avatar Styling */
@@ -160,13 +160,22 @@ ul { list-style: none; }
     font-size: 1.1rem;
 }
 
+/* Button Container (Desktop) */
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Khoảng cách chuẩn cho desktop */
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
 .hero-btns .btn {
     display: inline-block;
     padding: 12px 30px;
-    margin: 0 10px;
     border-radius: 5px;
     font-weight: bold;
     transition: var(--transition);
+    min-width: 160px;
 }
 
 .btn-primary {
@@ -421,16 +430,40 @@ ul { list-style: none; }
     font-size: 0.9rem;
 }
 
-/* Responsive */
+/* ========================================= */
+/* MOBILE RESPONSIVE (Tất cả xử lý ở đây)    */
+/* ========================================= */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Simplified for mobile */
+    /* 1. Xử lý Navbar */
+    .nav-links { display: none; } /* Ẩn menu desktop */
     .menu-toggle { display: block; color: var(--text-color); }
     
+    /* 2. Xử lý Hero Section */
     .hero { padding-top: 100px; }
     .hero h1 { font-size: 2.5rem; }
     .hero-contact-bar { flex-direction: column; gap: 10px; }
     
-    .timeline-item { flex-direction: column; gap: 10px; }
+    /* 3. Xử lý Nút bấm (Sửa lỗi dính nút) */
+    .hero-btns {
+        flex-direction: column; /* Xếp dọc */
+        width: 100%;            /* Rộng 100% container */
+        padding: 0 40px;        /* Lề 2 bên để nút gọn hơn */
+        gap: 0;                 /* Reset gap để dùng margin cho chắc chắn */
+    }
+
+    .hero-btns .btn {
+        width: 100%;            /* Nút dài full */
+        text-align: center;
+        display: block;         /* Đảm bảo là khối block */
+        margin-bottom: 15px;    /* Tạo khoảng cách dưới mỗi nút */
+    }
+
+    /* Bỏ margin của nút cuối cùng để không bị thừa */
+    .hero-btns .btn:last-child {
+        margin-bottom: 0;
+    }
     
+    /* 4. Xử lý các phần khác */
+    .timeline-item { flex-direction: column; gap: 10px; }
     .footer-container { text-align: left; }
 }
